@@ -4,16 +4,18 @@ Sandwich = Struct.new(:taste, :toppings)
 # expect
 # these are the core methods of the RSpec API
 RSpec.describe 'An ideal sandwich' do 
-  before { @sandwich = Sandwich.new('delicious', []) } 
-	it 'is delicious' do 
-	  taste = @sandwich.taste
+	it 'is delicious' do
+     sandwich = Sandwich.new('delicious', [])
+     taste = sandwich.taste
 
-    expect(taste).to eq('delicious')
+     expect(taste).to eq('delicious')
   end 
     
-  it 'lets me add toppings' do 
-    toppings = @sandwich.toppings
-    @sandwich.toppings << 'cheese'
+  it 'lets me add toppings' do
+    sandwich = Sandwich.new('delicious', [])
+    toppings = sandwich.toppings
+
+    sandwich.toppings << 'cheese'
 
     expect(toppings).not_to be_empty
 	end 

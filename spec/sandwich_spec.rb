@@ -4,13 +4,12 @@ Sandwich = Struct.new(:taste, :toppings)
 # expect
 # these are the core methods of the RSpec API
 RSpec.describe 'An ideal sandwich' do
-  # lets add a helper method
-  def sandwich
-    @sandwich ||= Sandwich.new('delicious', []) #memoization 
-  end 
-  # In contrast with an instance varible 'before' hook
-  # the helper method DOES NOT have to be instantiated
-  # on every test within the example group
+  let(:sandwich) { Sandwich.new('delicious', []) }
+# let binds a name (sandwich) to the result of 
+# of the code blocks computation 
+# like the memoized helper method, RSpec 
+# will run the block the first time any 
+# example calls sandwich.
 	it 'is delicious' do
 
      taste = sandwich.taste

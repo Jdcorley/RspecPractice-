@@ -1,7 +1,16 @@
 class Coffee 
   def ingredients
     @ingredients ||= []
-  end 
+  end
+
+  def color
+    ingredients.include?(:milk) ? :light : :dark
+  end
+
+  def temperature
+    ingredients.include?(:milk) ? 190.0 : 205.0
+  end
+
 
   def add(ingredient)
     ingredients << ingredient 
@@ -9,7 +18,7 @@ class Coffee
 
   def price
     1.00 + ingredients.size * 0.25
-  end 
+  end
 end 
 # --only-failures
 #set file path for rspec to store failed examples 
@@ -27,7 +36,7 @@ RSpec.describe 'A cup of coffee' do
 
   it 'is light in color' do 
     pending 'Color not yet implemented'
-    expect(coffee.color).to be(:light)
+    expect(coffee.color).to be(:light) 
   end 
 
   it 'is cooler than 200 degrees Fahrenheit' do 
